@@ -10,13 +10,19 @@
 	min-height: 200vh;
 	padding: 30px;
 	background-image: url("images/bg.jpg");
-	/* filter: blur(3px); */
+}
+
+.main_container.modal_open {
+	min-height: 100vh;
+	overflow-y: hidden;
+	padding-right: 15px;
+	filter: blur(4px);
 }
 
 .cookies_policy_container {
 	width: 100%;
 	max-width: 670px;
-	position: absolute;
+	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -55,8 +61,6 @@
 	list-style: none;
 	padding-top: 10px;
 	overflow-y: scroll;
-	/* -ms-overflow-style: none; */
-	/* scrollbar-width: none; */
 }
 
 .GDPR_vendors_list li {
@@ -83,6 +87,9 @@
 	margin: 20px 0 0 0;
 	border-radius: 5px;
 	cursor: pointer;
+}
+.GDPR_buttons_container button:focus {
+	outline: thin dotted #fff;
 }
 
 .GDPR_buttons_container button:first-of-type {

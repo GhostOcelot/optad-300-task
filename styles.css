@@ -6,6 +6,10 @@
 		sans-serif;
 }
 
+body {
+	background: #342a81;
+}
+
 .main_container {
 	min-height: 200vh;
 	padding: 30px;

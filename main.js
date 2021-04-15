@@ -1,9 +1,12 @@
+import { setCookie } from "./cookies.js"
+
 const mainContainer = document.querySelector(".main_container")
 const cookiesPolicyContainer = document.querySelector(".cookies_policy_container")
-const cookiesPolicy = document.querySelector(".cookies_policy")
 const vendorsList = document.querySelector(".GDPR_vendors_list")
 const GDPRAcceptBtn = document.querySelector(".GDPR_accept_btn")
 const GDPRRejectBtn = document.querySelector(".GDPR_reject_btn")
+
+setCookie()
 
 const getData = async () => {
 	const res = await fetch("https://optad360.mgr.consensu.org/cmp/v2/vendor-list.json")

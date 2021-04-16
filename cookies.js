@@ -8,14 +8,15 @@ const createExpiryDateForCookie = () => {
 };
 
 export const setCookie = async () => {
-	let cookieValue = '';
-	getData()
-		.then(vendors => {
-			vendors.forEach(vendor => {
-				cookieValue += `${vendor.name.trim()}-`;
-			});
-			const cookieExpiryDate = createExpiryDateForCookie();
-			document.cookie = `accepted=${cookieValue};expires=${cookieExpiryDate};secure=true`;
-		})
-		.catch(error => console.error(error));
+	// let cookieValue = '';
+	// getData()
+	// 	.then(vendors => {
+	// 		vendors.forEach(vendor => {
+	// 			cookieValue += `${vendor.name.trim()}-`;
+	// 		});
+	// const cookieExpiryDate = createExpiryDateForCookie();
+	document.cookie = `accepted=true; expires=${createExpiryDateForCookie()}`;
 };
+//     )
+// 		.catch(error => console.error(error));
+// };

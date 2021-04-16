@@ -28,6 +28,11 @@ const createVendorsList = vendors => {
 	});
 };
 
+const closeModal = () => {
+	mainContainer.classList.remove('modal_open');
+	cookiesPolicyContainer.style.display = 'none';
+};
+
 const init = () => {
 	if (document.cookie.indexOf('accepted=') === -1) {
 		mainContainer.classList.add('modal_open');
@@ -35,18 +40,13 @@ const init = () => {
 			.then(vendors => createVendorsList(vendors))
 			.catch(error => console.error(error));
 	}
+
+	GDPRAcceptBtn.addEventListener('click', () => {
+		setCookie();
+		closeModal();
+	});
+
+	GDPRRejectBtn.addEventListener('click', closeModal);
 };
-
-const closeModal = () => {
-	mainContainer.classList.remove('modal_open');
-	cookiesPolicyContainer.style.display = 'none';
-};
-
-GDPRAcceptBtn.addEventListener('click', () => {
-	setCookie();
-	closeModal();
-});
-
-GDPRRejectBtn.addEventListener('click', closeModal);
 
 init();

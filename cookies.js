@@ -1,5 +1,3 @@
-import { getData } from './main.js';
-
 const createExpiryDateForCookie = () => {
 	const cookieExpiryDate = new Date();
 	const expireDay = cookieExpiryDate.getDate();
@@ -8,15 +6,13 @@ const createExpiryDateForCookie = () => {
 };
 
 export const setCookie = async () => {
-	// let cookieValue = '';
-	// getData()
-	// 	.then(vendors => {
-	// 		vendors.forEach(vendor => {
-	// 			cookieValue += `${vendor.name.trim()}-`;
-	// 		});
-	// const cookieExpiryDate = createExpiryDateForCookie();
-	document.cookie = `accepted=true; expires=${createExpiryDateForCookie()}`;
+	let ids = '- ';
+
+	Array.from(document.querySelectorAll('.GDPR_vendors_list input:checked'))
+		.map(item => item.attributes[1].value)
+		.forEach(item => {
+			ids += `${item} - `;
+		});
+
+	document.cookie = `accepted=${ids}; expires=${createExpiryDateForCookie()}; secure`;
 };
-//     )
-// 		.catch(error => console.error(error));
-// };
